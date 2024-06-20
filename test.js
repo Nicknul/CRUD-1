@@ -12,17 +12,12 @@ const createTableQuery = `CREATE TABLE IF NOT EXISTS member (
 );
 `;
 
-let names = '정호연';
+let names = ['이연승', '정호연', '겨울이', '까미'];
 let age = 27;
-
-let test = {
-  name: ['이연승', '정호연'],
-  age: [30, 27],
-};
 
 let insertQuery = `INSERT INTO member (name, age) VALUES (?, ?)`;
 
-db.run(insertQuery, [test.name, test.age], (err) => {
+db.run(insertQuery, [names[1], age], (err) => {
   if (err) {
     console.log(err.message);
   } else {
