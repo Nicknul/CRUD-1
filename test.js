@@ -13,15 +13,17 @@ const createTableQuery = `CREATE TABLE IF NOT EXISTS member (
 `;
 
 let names = ['이연승', '정호연', '겨울이', '까미'];
-let age = 27;
+let age = [30, 27, 4, 3];
 
 let insertQuery = `INSERT INTO member (name, age) VALUES (?, ?)`;
 
-db.run(insertQuery, [names[1], age], (err) => {
-  if (err) {
-    console.log(err.message);
-  } else {
-    console.log('데이터가 성공적으로 생성');
-  }
-  db.close();
-});
+for (let value in names) {
+  db.run(insertQuery, [names[value], age[value]], (err) => {
+    if (err) {
+      console.log(err.message);
+    } else {
+      console.log('데이터가 성공적으로 생성');
+    }
+    db.close();
+  });
+}
