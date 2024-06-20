@@ -1,13 +1,15 @@
 const sqlite3 = require('sqlite3');
 const db = new sqlite3.Database('databasefile.db');
 
-const updateData = db.prepare(`UPDATE member SET name = ? WHERE id = ?`);
+let updateData = `UPDATE member SET name = ? WHERE id = ?`;
+let updateName = '이연승';
+let userId = 1;
 
-updateData.run('이연승', 1, (err) => {
+db.run(updateData, [updateName, userId], (err) => {
   if (err) {
-    console.error('데이터 업데이트 중 오류 발생:', err.message);
+    console.error('데이터 전송 중 에러:', err.message);
   } else {
-    console.log(`ID 1 사용자의 이름이 이연승으로 업데이트되었습니다.`);
+    console.log(`ID ${userId} 사용자의 이름이 ${updateName}으로 업데이트 되었습니다.`);
   }
   db.close();
 });
