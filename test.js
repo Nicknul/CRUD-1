@@ -20,9 +20,9 @@ let test = {
   age: [30, 27],
 };
 
-let insertQurey = `INSERT INTO member (name, age) VALUES (?, ?)`;
+let insertQuery = `INSERT INTO member (name, age) VALUES (?, ?)`;
 
-db.run(insertQurey, [test.name, test.age], (err) => {
+db.run(insertQuery, [test.name, test.age], (err) => {
   if (err) {
     console.log(err.message);
   } else {
