@@ -2,7 +2,7 @@ const sqlite3 = require('sqlite3').verbose();
 // console.dir(sqlite3);
 
 const db = new sqlite3.Database('databasefile.db');
-// console.log(db);
+console.log(db);
 
 // database 테이블 쿼리 만들기
 const createTableQuery = `CREATE TABLE IF NOT EXISTS member (
@@ -11,6 +11,9 @@ const createTableQuery = `CREATE TABLE IF NOT EXISTS member (
     age INTEGER NOT NULL
 );
 `;
+
+let names = '정호연';
+let age = 27;
 
 db.run(createTableQuery, (err) => {
   if (err) {
