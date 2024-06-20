@@ -28,9 +28,10 @@ let names = ['이연승', '정호연', '겨울이', '까미'];
 //   });
 // }
 
-let selectAllmemberQurey = `SELECT * FROM member`;
+let selectAllmemberQurey = `SELECT * FROM member WHERE age = ?`;
+let ages = 30;
 
-db.all(selectAllmemberQurey, [], (err, rows) => {
+db.all(selectAllmemberQurey, [ages], (err, rows) => {
   if (err) {
     console.error(`데이터 조회 중 오류 발생:`, err.message);
   } else {
