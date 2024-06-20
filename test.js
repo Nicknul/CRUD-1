@@ -11,3 +11,12 @@ const createTableQuery = `CREATE TABLE IF NOT EXISTS member (
     age INTEGER NOT NULL
 );
 `;
+
+db.run(createTableQuery, (err) => {
+  if (err) {
+    console.log(err.message);
+  } else {
+    console.log('데이터가 성공적으로 생성');
+  }
+  db.close();
+});
