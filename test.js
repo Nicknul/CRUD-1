@@ -12,7 +12,7 @@ const createTableQuery = `CREATE TABLE IF NOT EXISTS member (
 );
 `;
 
-// let names = ['이연승', '정호연', '겨울이', '까미'];
+let names = ['이연승', '정호연', '겨울이', '까미'];
 // let age = [30, 27, 4, 3];
 
 // let insertQuery = `INSERT INTO member (name, age) VALUES (?, ?)`;
@@ -27,3 +27,16 @@ const createTableQuery = `CREATE TABLE IF NOT EXISTS member (
 //     db.close();
 //   });
 // }
+
+let selectAllmemberQurey = `SELECT * FROM member`;
+
+db.all(selectAllmemberQurey, [], (err, rows) => {
+  if (err) {
+    console.error(`데이터 조회 중 오류 발생:`, err.message);
+  } else {
+    rows.forEach((row) => {
+      console.log(`${row.id}: ${row.name}, ${row.age}`);
+    });
+  }
+  db.close();
+});
